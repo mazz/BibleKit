@@ -10,7 +10,7 @@ import Foundation
 public class RefParser {}
 
 extension RefParser {
-    static func parseReferences(stringReference: String) -> [Reference] {
+    public static func parseReferences(stringReference: String) -> [Reference] {
         // make fullRegex for book, chapter, verse start and verse end
         if let regex = RefParser.fullRegex() {
             let range = NSRange(location: 0, length: stringReference.utf16.count)

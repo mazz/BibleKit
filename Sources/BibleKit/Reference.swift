@@ -8,22 +8,22 @@
 import Foundation
 
 public class Reference: BibleReference {
-    var book: String
+    public var book: String
     var _bookNames: [String : String]
-    var bookNumber: Int?
-    var referenceType: ReferenceType?
-    var startChapter: Chapter
-    var endChapter: Chapter?
-    var startVerse: Verse
-    var endVerse: Verse?
-    var startVerseNumber: Int?
-    var endChapterNumber: Int?
-    var endVerseNumber: Int?
-    var isValid: Bool
+    public var bookNumber: Int?
+    public var referenceType: ReferenceType?
+    public var startChapter: Chapter
+    public var endChapter: Chapter?
+    public var startVerse: Verse
+    public var endVerse: Verse?
+    public var startVerseNumber: Int?
+    public var endChapterNumber: Int?
+    public var endVerseNumber: Int?
+    public var isValid: Bool
 
     private var _chapters: [Chapter]?
 
-    var chapters: [Chapter]? {
+    public var chapters: [Chapter]? {
         if _chapters != nil {
           return _chapters;
         }
@@ -43,7 +43,7 @@ public class Reference: BibleReference {
 
     private var _verses: [Verse]?
 
-    var verses: [Verse]? {
+    public var verses: [Verse]? {
         if _verses != nil {
           return _verses;
         }
@@ -69,23 +69,23 @@ public class Reference: BibleReference {
     }
 
 
-    func toString() -> String {
+    public func toString() -> String {
         return reference!
     }
 
-    func osisBook() -> String? {
+    public func osisBook() -> String? {
         _bookNames["osis"]
     }
 
-    func abbrBook() -> String? {
+    public func abbrBook() -> String? {
         _bookNames["abbr"]
     }
 
-    func shortBook() -> String? {
+    public func shortBook() -> String? {
         _bookNames["short"]
     }
 
-    func osisReference() -> String? {
+    public func osisReference() -> String? {
         return Librarian.createReferenceString(book: osisBook(),
                                                startChapter: startChapterNumber,
                                                startVerse: startVerseNumber,
@@ -94,7 +94,7 @@ public class Reference: BibleReference {
         )
     }
 
-    func abbrReference() -> String? {
+    public func abbrReference() -> String? {
         return Librarian.createReferenceString(book: abbrBook(),
                                                startChapter: startChapterNumber,
                                                startVerse: startVerseNumber,
@@ -103,7 +103,7 @@ public class Reference: BibleReference {
         )
     }
 
-    func shortReference() -> String? {
+    public func shortReference() -> String? {
         return Librarian.createReferenceString(book: shortBook(),
                                                startChapter: startChapterNumber,
                                                startVerse: startVerseNumber,
@@ -112,10 +112,10 @@ public class Reference: BibleReference {
         )
     }
 
-    var reference: String?
+    public var reference: String?
     var startChapterNumber: Int = 0
 
-    init(book: String,
+    public init(book: String,
          startChapter: Int? = nil,
          startVerse: Int? = nil,
          endChapter: Int? = nil,
