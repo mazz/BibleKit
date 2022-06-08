@@ -45,17 +45,17 @@ Reference objects are the broadest kind of reference.
 You can directly construct one by following this format:
 
 ```swift
-let range = Reference(book: "Genesis", startChapter: 2, startVerse: 3, endChapter: 4, endVerse: 5)
+let genesisRef = Reference(book: "Genesis", startChapter: 2, startVerse: 3, endChapter: 4, endVerse: 5)
 ```
 
 Their most important fields are these:
 ```swift
-ref.reference // The string representation (osisReference, shortReference, and abbr also available)
-ref.startVerseNumber
-ref.endVerseNumber
-ref.startChapterNumber
-ref.endChapterNumber
-ref.referenceType // VERSE, CHAPTER, VERSE_RANGE, CHAPTER_RANGE
+genesisRef.reference // The string representation (osisReference, shortReference, and abbr also available)
+genesisRef.startVerseNumber
+genesisRef.endVerseNumber
+genesisRef.startChapterNumber
+genesisRef.endChapterNumber
+genesisRef.referenceType // VERSE, CHAPTER, VERSE_RANGE, CHAPTER_RANGE
 ```
 Based on what is passed in, the constructor will figure out
 certain fields. For example, if you were to construct `Reference('James')`
