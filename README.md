@@ -24,7 +24,7 @@ headers. But if you have more complicated needs this package can handle those!
 
 to include this in your Swift application:
 ```swift
-import BibleKit`
+import BibleKit
 ```
 
 ## Parsing References
