@@ -21,7 +21,7 @@ extension Dictionary {
 
 public class Librarian {
   ///Returns the book number from a string.
-    static func findBookNumber(book: String) -> Int? {
+    public static func findBookNumber(book: String) -> Int? {
     let bookLower = book.lowercased();
     var val = BibleData.books[bookLower];
     if (val != nil) {
@@ -39,7 +39,7 @@ public class Librarian {
   }
 
   ///Validate that a book is in the bible, does not validate mispellings.
-    static func checkBook(book: String) -> Bool {
+    public static func checkBook(book: String) -> Bool {
         let bookLower = book.lowercased();
         return BibleData.books.contains(key: bookLower) ||
         BibleData.osisBooks.contains(key: bookLower) ||
@@ -47,7 +47,7 @@ public class Librarian {
     }
 
   /// Returns the osis, abbr, name, and short versions of a book title.
-    static func getBookNames(book: Any) -> [String: String] {
+    public static func getBookNames(book: Any) -> [String: String] {
         var foundBook: Int?
         if (book is String) {
             if let book = book as? String {
@@ -71,7 +71,7 @@ public class Librarian {
   }
 
   /// Gets the last verse number in a specified book or book or chapter.
-    static func getLastVerseNumber(book: Any, chapter: Int? = nil) -> Int? {
+    public static func getLastVerseNumber(book: Any, chapter: Int? = nil) -> Int? {
         var foundBook: Int?
 
         if (book is String) {
@@ -102,7 +102,7 @@ public class Librarian {
   }
 
   /// Returns the number for the last chapter within a book.
-    static func getLastChapterNumber(book: Any) -> Int? {
+    public static func getLastChapterNumber(book: Any) -> Int? {
         var foundBook: Int?
         if (book is String) {
             if let book = book as? String {
@@ -121,7 +121,7 @@ public class Librarian {
     }
 
     /// Creates a [Verse] object for the last verse in a book or chapter.
-    static func getLastVerse(book: Any, chapter: Int?) -> Verse? {
+    public static func getLastVerse(book: Any, chapter: Int?) -> Verse? {
 
         var bookNumber: Int?
 
@@ -163,7 +163,7 @@ public class Librarian {
 
     //  /// Returns a [Chapter] object that corresponds to the
     //  /// last chapter within a book.
-    static func getLastChapter(book: Any) -> Chapter? {
+    public static func getLastChapter(book: Any) -> Chapter? {
         var bookNumber: Int?
 
         if (book is Int) {
@@ -204,7 +204,7 @@ public class Librarian {
       }
 
   /// Returns the [ReferenceType] based on the number of passed in arguments.
-    static func identifyReferenceType(book: Any,
+    public static func identifyReferenceType(book: Any,
                                       startChapter: Int? = nil,
                                       startVerse: Int? = nil,
                                       endChapter: Int? = nil,
@@ -230,7 +230,7 @@ public class Librarian {
 
     /// Verifies a reference based on which fields are left `null`
     /// or can be found within the bible.
-    static func verifyReference(book: Any?,
+    public static func verifyReference(book: Any?,
                                 startChapter: Int? = nil,
                                 startVerse: Int? = nil,
                                 endChapter: Int? = nil,
@@ -339,7 +339,7 @@ public class Librarian {
         return true;
     }
 
-    static func createReferenceString(book: String?,
+    public static func createReferenceString(book: String?,
                                       startChapter: Int? = nil,
                                       startVerse: Int? = nil,
                                       endChapter: Int? = nil,
