@@ -172,21 +172,21 @@ public class Reference: BibleReference {
         }
         
         self.reference = Librarian.createReferenceString(book: fullBookName,
-                                                         startChapter: startChapterNumber,
+                                                         startChapter: startChapter,
                                                          startVerse: startVerse,
                                                          endChapter: endChapter,
                                                          endVerse: endVerse
         )
         
         self.referenceType = Librarian.identifyReferenceType(book: fullBookName,
-                                                             startChapter: startChapterNumber,
+                                                             startChapter: startChapter,
                                                              startVerse: startVerse,
                                                              endChapter: endChapter,
                                                              endVerse: endVerse
         )
         
         self.isValid = Librarian.verifyReference(book: fullBookName,
-                                                 startChapter: startChapterNumber,
+                                                 startChapter: startChapter,
                                                  startVerse: startVerse,
                                                  endChapter: endChapter,
                                                  endVerse: endVerse

@@ -347,43 +347,44 @@ public class Librarian {
 
         guard book != nil else { return nil }
         var reference: String = ""
-        if let book = book,
-           let startChapter = startChapter {
+        if let book = book {
             reference.append(contentsOf: book)
-            reference.append(contentsOf: " \(startChapter)")
+            if let startChapter = startChapter {
+                reference.append(contentsOf: " \(startChapter)")
 
-            if startVerse != nil {
-                if let startVerse = startVerse {
-                    reference.append(contentsOf: ":\(startVerse)")
+                if startVerse != nil {
+                    if let startVerse = startVerse {
+                        reference.append(contentsOf: ":\(startVerse)")
 
-                    if endChapter != nil && endChapter != startChapter {
-                        if let endChapter = endChapter {
-                            reference.append(contentsOf: " - \(endChapter)")
-                        }
+                        if endChapter != nil && endChapter != startChapter {
+                            if let endChapter = endChapter {
+                                reference.append(contentsOf: " - \(endChapter)")
+                            }
 
-                        if let endVerse = endVerse {
-                            reference.append(contentsOf: ":\(endVerse)")
-                        } else {
-                            if let lastVerseNumber = getLastVerseNumber(book: book, chapter: endChapter) {
-                                reference.append(contentsOf: ":\(lastVerseNumber)")
+                            if let endVerse = endVerse {
+                                reference.append(contentsOf: ":\(endVerse)")
+                            } else {
+                                if let lastVerseNumber = getLastVerseNumber(book: book, chapter: endChapter) {
+                                    reference.append(contentsOf: ":\(lastVerseNumber)")
+                                }
+                            }
+
+                        } else if endVerse != nil && endVerse != startVerse {
+                            if let endVerse = endVerse {
+                                reference.append(contentsOf: "-\(endVerse)")
                             }
                         }
-
-                    } else if endVerse != nil && endVerse != startVerse {
-                        if let endVerse = endVerse {
-                            reference.append(contentsOf: "-\(endVerse)")
+                    }
+                } else if endChapter != nil && endChapter != startChapter {
+                    if endVerse != nil {
+                        if let endChapter = endChapter,
+                           let endVerse = endVerse {
+                            reference.append(contentsOf: ":1 - \(endChapter):\(endVerse)")
                         }
-                    }
-                }
-            } else if endChapter != nil && endChapter != startChapter {
-                if endVerse != nil {
-                    if let endChapter = endChapter,
-                        let endVerse = endVerse {
-                        reference.append(contentsOf: ":1 - \(endChapter):\(endVerse)")
-                    }
-                } else {
-                    if let endChapter = endChapter {
-                        reference.append(contentsOf: "-\(endChapter)")
+                    } else {
+                        if let endChapter = endChapter {
+                            reference.append(contentsOf: "-\(endChapter)")
+                        }
                     }
                 }
             }

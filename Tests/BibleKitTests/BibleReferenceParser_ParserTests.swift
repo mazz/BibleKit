@@ -119,6 +119,14 @@ class BibleReferenceParser_ParserTests: XCTestCase {
         XCTAssert(ref[0].reference == "Matthew 2:3-5")
         XCTAssert(ref[0].book == "Matthew")
         XCTAssert(ref[0].isValid == true)
+
+        ref = RefParser.parseReferences("genesis")
+        XCTAssert(ref.count == 1)
+        XCTAssert(ref[0].reference == "Genesis")
+        XCTAssert(ref[0].book == "Genesis")
+        XCTAssert(ref[0].referenceType == ReferenceType.BOOK)
+        XCTAssert(ref[0].isValid == true)
+
     }
 
     func testParsingAllReferences() throws {
