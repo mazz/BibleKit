@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RefParser {}
+public class RefParser {}
 
 extension RefParser {
     static func parseReferences(stringReference: String) -> [Reference] {

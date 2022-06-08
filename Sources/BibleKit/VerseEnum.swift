@@ -8,7 +8,7 @@
 import Foundation
 
 /// The kind of reference a [BibleReference] is.
-enum ReferenceType: String, Codable {
+public enum ReferenceType: String, Codable {
   /// A reference that contains a
   /// book, chapter, and single verse.
   ///

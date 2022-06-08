@@ -10,7 +10,7 @@ public struct BibleKit {
 /// When instantiated by the [Reference] class, this object usually refers to the
 /// reference object's first or last verse within that reference.
 
-class Verse: BibleReference {
+public class Verse: BibleReference {
     var book: String
     var _bookNames: [String : String]
     var bookNumber: Int?
@@ -74,7 +74,7 @@ class Verse: BibleReference {
     }
 }
 
-class Chapter: BibleReference {
+public class Chapter: BibleReference {
     var _bookNames: [String : String]
 
     func toString() -> String {

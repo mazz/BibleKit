@@ -19,7 +19,7 @@ extension Dictionary {
   }
 }
 
-class Librarian {
+public class Librarian {
   ///Returns the book number from a string.
     static func findBookNumber(book: String) -> Int? {
     let bookLower = book.lowercased();

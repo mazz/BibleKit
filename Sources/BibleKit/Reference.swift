@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Reference: BibleReference {
+public class Reference: BibleReference {
     var book: String
     var _bookNames: [String : String]
     var bookNumber: Int?
@@ -198,7 +198,7 @@ class Reference: BibleReference {
     }
 }
 
-extension Reference {
+public extension Reference {
     static func chapter(book: String, chapter: Int) -> Reference {
         return Reference(book: book,
                          startChapter: chapter,
