@@ -8,7 +8,7 @@
 import XCTest
 @testable import BibleKit
 
-class BibleReferenceParser_ReferenceTests: XCTestCase {
+class BibleKit_ReferenceTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -50,19 +50,19 @@ class BibleReferenceParser_ReferenceTests: XCTestCase {
     func testRedirectiveConstructors() throws {
         let chapter = Reference(book: "Genesis", startChapter: 2)
         XCTAssert(chapter.reference == "Genesis 2")
-        XCTAssert(chapter.referenceType == ReferenceType.CHAPTER)
+        XCTAssert(chapter.referenceType == ReferenceType.chapter)
 
         let verse = Reference(book: "Genesis", startChapter: 2, startVerse: 2)
         XCTAssert(verse.reference == "Genesis 2:2")
-        XCTAssert(verse.referenceType == ReferenceType.VERSE)
+        XCTAssert(verse.referenceType == ReferenceType.verse)
 
         let chapterRange = Reference(book: "Genesis", startChapter: 2, endChapter: 3)
         XCTAssert(chapterRange.reference == "Genesis 2-3")
-        XCTAssert(chapterRange.referenceType == ReferenceType.CHAPTER_RANGE)
+        XCTAssert(chapterRange.referenceType == ReferenceType.chapterRange)
 
         let verseRange = Reference(book: "Genesis", startChapter: 2, startVerse: 3, endVerse: 4)
         XCTAssert(verseRange.reference == "Genesis 2:3-4")
-        XCTAssert(verseRange.referenceType == ReferenceType.VERSE_RANGE)
+        XCTAssert(verseRange.referenceType == ReferenceType.verseRange)
 
     }
 

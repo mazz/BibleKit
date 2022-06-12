@@ -8,7 +8,7 @@
 import XCTest
 @testable import BibleKit
 
-class BibleReferenceParser_ParserTests: XCTestCase {
+class BibleKit_ParserTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -124,7 +124,7 @@ class BibleReferenceParser_ParserTests: XCTestCase {
         XCTAssert(ref.count == 1)
         XCTAssert(ref[0].reference == "Genesis")
         XCTAssert(ref[0].book == "Genesis")
-        XCTAssert(ref[0].referenceType == ReferenceType.BOOK)
+        XCTAssert(ref[0].referenceType == ReferenceType.book)
         XCTAssert(ref[0].isValid == true)
 
     }

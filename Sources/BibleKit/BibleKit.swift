@@ -23,7 +23,7 @@ public class Verse: BibleReference {
         self.book = book
         self._bookNames = Librarian.getBookNames(book: book)
         self.bookNumber = Librarian.findBookNumber(book: book)
-        self.referenceType = ReferenceType.VERSE
+        self.referenceType = ReferenceType.verse
         self.reference = Librarian.createReferenceString(book: book, startChapter: chapterNumber, startVerse: verseNumber)
         self.chapterNumber = chapterNumber
         self.verseNumber = verseNumber
@@ -143,7 +143,7 @@ public class Chapter: BibleReference {
         self.book = book
         self._bookNames = Librarian.getBookNames(book: book)
         self.chapterNumber = chapterNumber
-        self.referenceType = ReferenceType.CHAPTER
+        self.referenceType = ReferenceType.chapter
         self.reference = Librarian.createReferenceString(book: book, startChapter: chapterNumber)
         self.startVerseNumber = 1
         self.startVerse = Verse(book: book, chapterNumber: chapterNumber, verseNumber: 1)

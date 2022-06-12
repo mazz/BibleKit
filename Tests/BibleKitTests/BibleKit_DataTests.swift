@@ -8,7 +8,7 @@
 import XCTest
 @testable import BibleKit
 
-class BibleReferenceParser_DataTests: XCTestCase {
+class BibleKit_DataTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -90,10 +90,10 @@ class BibleReferenceParser_DataTests: XCTestCase {
     }
 
     func testLibrarianCorrectlyCreatesReferenceType() throws {
-        XCTAssert(Librarian.identifyReferenceType(book: "John") == ReferenceType.BOOK)
-        XCTAssert(Librarian.identifyReferenceType(book: "John", startChapter: 1) == ReferenceType.CHAPTER)
-        XCTAssert(Librarian.identifyReferenceType(book: "Joeseph", startChapter: 2, startVerse: 4) == ReferenceType.VERSE)
-        XCTAssert(Librarian.identifyReferenceType(book: "Joeseph", startChapter: 2, startVerse: 4, endChapter: 5) == ReferenceType.CHAPTER_RANGE)
+        XCTAssert(Librarian.identifyReferenceType(book: "John") == ReferenceType.book)
+        XCTAssert(Librarian.identifyReferenceType(book: "John", startChapter: 1) == ReferenceType.chapter)
+        XCTAssert(Librarian.identifyReferenceType(book: "Joeseph", startChapter: 2, startVerse: 4) == ReferenceType.verse)
+        XCTAssert(Librarian.identifyReferenceType(book: "Joeseph", startChapter: 2, startVerse: 4, endChapter: 5) == ReferenceType.chapterRange)
     }
 
     func testLibrarianCorrectlyCreatesLastVerseObjects() throws {
@@ -101,19 +101,19 @@ class BibleReferenceParser_DataTests: XCTestCase {
         XCTAssert(verseJohn?.book == "John")
         XCTAssert(verseJohn?.chapterNumber == 21)
         XCTAssert(verseJohn?.verseNumber == 25)
-        XCTAssert(verseJohn?.referenceType == ReferenceType.VERSE)
+        XCTAssert(verseJohn?.referenceType == ReferenceType.verse)
 
         let versePs = Librarian.getLastVerse(book: "Ps", chapter: nil)
         XCTAssert(versePs?.book == "Psalms")
         XCTAssert(versePs?.chapterNumber == 150)
         XCTAssert(versePs?.verseNumber == 6)
-        XCTAssert(versePs?.referenceType == ReferenceType.VERSE)
+        XCTAssert(versePs?.referenceType == ReferenceType.verse)
 
         let verseGen2 = Librarian.getLastVerse(book: "Gen", chapter: 2)
         XCTAssert(verseGen2?.book == "Genesis")
         XCTAssert(verseGen2?.chapterNumber == 2)
         XCTAssert(verseGen2?.verseNumber == 25)
-        XCTAssert(verseGen2?.referenceType == ReferenceType.VERSE)
+        XCTAssert(verseGen2?.referenceType == ReferenceType.verse)
 
     }
 
@@ -121,7 +121,7 @@ class BibleReferenceParser_DataTests: XCTestCase {
         let chapterGen = Librarian.getLastChapter(book: "Gen")
         XCTAssert(chapterGen?.book == "Genesis")
         XCTAssert(chapterGen?.chapterNumber == 50)
-        XCTAssert(chapterGen?.referenceType == ReferenceType.CHAPTER)
+        XCTAssert(chapterGen?.referenceType == ReferenceType.chapter)
     }
 
     func testLibrarianCreatesCorrectReferenceStrings() throws {

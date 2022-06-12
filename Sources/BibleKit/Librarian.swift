@@ -210,20 +210,20 @@ public class Librarian {
                                       endChapter: Int? = nil,
                                       endVerse: Int? = nil) -> ReferenceType? {
         if (startChapter == nil && endChapter == nil) {
-            return ReferenceType.BOOK
+            return ReferenceType.book
         } else if startChapter != nil &&
                            endChapter != nil &&
                            startChapter != endChapter {
-            return ReferenceType.CHAPTER_RANGE
+            return ReferenceType.chapterRange
         } else if startChapter != nil &&
                            (endChapter == nil || endChapter == startChapter) &&
                            startVerse == nil &&
                    endVerse == nil {
-            return ReferenceType.CHAPTER;
+            return ReferenceType.chapter;
         } else if (startVerse != nil && endVerse != nil) {
-            return ReferenceType.VERSE_RANGE
+            return ReferenceType.verseRange
         } else if (startVerse != nil) {
-            return ReferenceType.VERSE
+            return ReferenceType.verse
         }
     return nil
   }
