@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Reference: BibleReference {
+public class Reference: BibleReference, CustomStringConvertible {
     public var book: String
     var _bookNames: [String : String]
     public var bookNumber: Int?
@@ -23,6 +23,18 @@ public class Reference: BibleReference {
 
     private var _chapters: [Chapter]?
 
+    public var description: String {
+        if let referenceType = referenceType,
+           let startVerseNumber = startVerseNumber,
+           let endVerseNumber = endVerseNumber,
+//           let startChapterNumber = startChapterNumber,
+           let endChapterNumber = endChapterNumber,
+           let reference = reference {
+            return "<\(type(of: self)): \(referenceType.rawValue.uppercased()) \"\(reference)\", book: \(book), startChapter: \(startChapterNumber), endChapter: \(endChapterNumber), startVerse: \(startVerseNumber), endVerse: \(endVerseNumber), isValid: \(isValid) \(Unmanaged.passUnretained(self).toOpaque())>"
+        } else {
+            return "<\(type(of: self)): \(Unmanaged.passUnretained(self).toOpaque())>"
+        }
+    }
     public var chapters: [Chapter]? {
         if _chapters != nil {
           return _chapters;

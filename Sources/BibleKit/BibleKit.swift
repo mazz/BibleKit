@@ -3,7 +3,16 @@
 /// When instantiated by the [Reference] class, this object usually refers to the
 /// reference object's first or last verse within that reference.
 
-public class Verse: BibleReference {
+public class Verse: BibleReference, CustomStringConvertible {
+    public var description: String {
+           if let chapterNumber = chapterNumber,
+           let reference = reference {
+            return "<\(type(of: self)): \"\(reference)\", book: \(book), chapter: \(chapterNumber), verse: \(verseNumber), isValid: \(isValid) \(Unmanaged.passUnretained(self).toOpaque())>"
+        } else {
+            return "<\(type(of: self)): \(Unmanaged.passUnretained(self).toOpaque())>"
+        }
+    }
+
     public var book: String
     var _bookNames: [String : String]
     public var bookNumber: Int?
@@ -67,7 +76,17 @@ public class Verse: BibleReference {
     }
 }
 
-public class Chapter: BibleReference {
+public class Chapter: BibleReference, CustomStringConvertible {
+    public var description: String {
+        if let referenceType = referenceType,
+           let endVerseNumber = endVerseNumber,
+           let reference = reference {
+            return "<\(type(of: self)): \"\(reference)\", book: \(book), chapterNumber: \(chapterNumber), startVerse: \(startVerseNumber), endVerse: \(endVerseNumber), isValid: \(isValid) \(Unmanaged.passUnretained(self).toOpaque())>"
+        } else {
+            return "<\(type(of: self)): \(Unmanaged.passUnretained(self).toOpaque())>"
+        }
+    }
+
     var _bookNames: [String : String]
 
     public func toString() -> String {

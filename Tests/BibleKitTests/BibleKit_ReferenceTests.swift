@@ -48,6 +48,10 @@ class BibleKit_ReferenceTests: XCTestCase {
     }
 
     func testRedirectiveConstructors() throws {
+        let book = Reference(book: "Genesis")
+        XCTAssert(book.reference == "Genesis")
+        XCTAssert(book.referenceType == ReferenceType.book)
+
         let chapter = Reference(book: "Genesis", startChapter: 2)
         XCTAssert(chapter.reference == "Genesis 2")
         XCTAssert(chapter.referenceType == ReferenceType.chapter)
