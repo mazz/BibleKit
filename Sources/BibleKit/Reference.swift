@@ -45,7 +45,7 @@ public class Reference: BibleReference, CustomStringConvertible {
         if let endChapterNumber = self.endChapterNumber,
            let chapters = self._chapters {
             mutChapters = chapters
-            for i in 1 ... endChapterNumber {
+            for i in startChapterNumber ... endChapterNumber {
                 mutChapters.append(Chapter(book: self.book, chapterNumber: i))
             }
         }

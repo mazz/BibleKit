@@ -114,6 +114,18 @@ class BibleKit_ParserTests: XCTestCase {
         XCTAssert(ref[0].book == "James")
         XCTAssert(ref[0].isValid == true)
 
+        ref = RefParser.parseReferences("So what about Psalms 11 - 12")
+        XCTAssert(ref.count == 1)
+        XCTAssert(ref[0].reference == "Psalms 11-12")
+        XCTAssert(ref[0].book == "Psalms")
+        XCTAssert(ref[0].startChapterNumber == 11)
+        XCTAssert(ref[0].endChapterNumber == 12)
+        XCTAssert(ref[0].isValid == true)
+
+        var chapters = ref[0].chapters
+        XCTAssert(chapters?.count == 2)
+
+
         ref = RefParser.parseReferences("Matthew 2:3-5 - 5:7")
         XCTAssert(ref.count == 1)
         XCTAssert(ref[0].reference == "Matthew 2:3-5")
@@ -127,6 +139,8 @@ class BibleKit_ParserTests: XCTestCase {
         XCTAssert(ref[0].referenceType == ReferenceType.book)
         XCTAssert(ref[0].isValid == true)
 
+        chapters = ref[0].chapters
+        XCTAssert(chapters?.count == 50)
     }
 
     func testParsingAllReferences() throws {
